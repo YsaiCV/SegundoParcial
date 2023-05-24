@@ -1,0 +1,5 @@
+com\emergentes\modelo\Producto.class
+com\emergentes\controlador\ControladorMain.class
+com\emergentes\DAO\IProductoDAO.class
+com\emergentes\DAO\ProductoDAO.class
+com\emergentes\utiles\ConexionBD.class
