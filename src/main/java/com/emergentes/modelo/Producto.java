@@ -9,6 +9,7 @@ public class Producto {
     private String descripcion;
     private int cantidad;
     private float precio;
+    private String categoria;
 
     public Producto(){
     }
@@ -44,4 +45,13 @@ public class Producto {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+    
 }

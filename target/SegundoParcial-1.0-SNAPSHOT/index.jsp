@@ -36,6 +36,7 @@
                     <th>DESCRIPCION</th>
                     <th>CANTIDAD</th>
                     <th>PRECIO</th>
+                    <th>CATEGORIA</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -49,6 +50,7 @@
                         <td><%=producto.getDescripcion()%></td>
                         <td><%=producto.getCantidad()%></td>
                         <td><%=producto.getPrecio()%></td>
+                        <td><%=producto.getCategoria()%></td>
                         <td><a href="ControladorMain?action=update&id=<%=producto.getId()%>">Editar</a></td>
                         <td><a href="ControladorMain?action=delete&id=<%=producto.getId()%>">Eliminar</a></td>
                     </tr>

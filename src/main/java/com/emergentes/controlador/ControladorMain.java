@@ -72,6 +72,7 @@ public class ControladorMain extends HttpServlet {
         String descripcion = request.getParameter("descripcion");
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
         float precio = Float.parseFloat(request.getParameter("precio"));
+        String categoria = request.getParameter("categoria");
         
         Producto producto = new Producto();
         
@@ -79,6 +80,7 @@ public class ControladorMain extends HttpServlet {
         producto.setDescripcion(descripcion);
         producto.setCantidad(cantidad);
         producto.setPrecio(precio);
+        producto.setCategoria(categoria);
         
         if(producto.getId() == -1){
             try {

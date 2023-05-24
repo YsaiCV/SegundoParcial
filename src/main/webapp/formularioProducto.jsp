@@ -37,6 +37,10 @@
                     <td>Precio: </td>
                     <td><input type="number" min="0" step="0.01" name="precio" value="${producto.precio}"></td>
                 </tr>
+                <tr>
+                    <td>Categoria: </td>
+                    <td><input type="text" name="categoria" value="${producto.categoria}"></td>
+                </tr>
             </table>
             <input type="submit" value="Guardar">
         </form>

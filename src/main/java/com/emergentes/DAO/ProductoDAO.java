@@ -17,12 +17,13 @@ public class ProductoDAO extends ConexionBD implements IProductoDAO {
     public void insert(Producto producto) throws Exception {
         try {
             this.conectar();
-            String sql = "INSERT INTO PRODUCTOS (DESCRIPCION, CANTIDAD, PRECIO) "
-                    + "VALUES (?,?,?)";
+            String sql = "INSERT INTO PRODUCTOS (DESCRIPCION, CANTIDAD, PRECIO, CATEGORIA) "
+                    + "VALUES (?,?,?,?)";
             PreparedStatement ps = this.conexion.prepareStatement(sql);
             ps.setString(1, producto.getDescripcion());
             ps.setInt(2, producto.getCantidad());
             ps.setFloat(3, producto.getPrecio());
+            ps.setString(4, producto.getCategoria());
             ps.executeUpdate();
             ps.close();
         } catch (Exception e) {
@@ -36,13 +37,14 @@ public class ProductoDAO extends ConexionBD implements IProductoDAO {
     public void update(Producto producto) throws Exception {
         try {
             this.conectar();
-            String sql = "UPDATE PRODUCTOS SET DESCRIPCION=?, CANTIDAD=?, PRECIO=? "
+            String sql = "UPDATE PRODUCTOS SET DESCRIPCION=?, CANTIDAD=?, PRECIO=?, CATEGORIA=?"
                     + "WHERE ID=?";
             PreparedStatement ps = this.conexion.prepareStatement(sql);
             ps.setString(1, producto.getDescripcion());
             ps.setInt(2, producto.getCantidad());
             ps.setFloat(3, producto.getPrecio());
-            ps.setInt(4, producto.getId());
+            ps.setString(4, producto.getCategoria());
+            ps.setInt(5, producto.getId());
             ps.executeUpdate();
             ps.close();
         } catch (Exception e) {
@@ -82,6 +84,7 @@ public class ProductoDAO extends ConexionBD implements IProductoDAO {
                 producto.setDescripcion(rs.getString("descripcion"));
                 producto.setCantidad(rs.getInt("cantidad"));
                 producto.setPrecio(rs.getFloat("precio"));
+                producto.setCategoria(rs.getString("categoria"));
                 listaProducto.add(producto);
             }
             rs.close();
@@ -108,6 +111,7 @@ public class ProductoDAO extends ConexionBD implements IProductoDAO {
                 producto.setDescripcion(rs.getString("descripcion"));
                 producto.setCantidad(rs.getInt("cantidad"));
                 producto.setPrecio(rs.getFloat("precio"));
+                producto.setCategoria(rs.getString("categoria"));
             }
             rs.close();
             ps.close();
